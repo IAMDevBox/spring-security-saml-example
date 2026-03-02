@@ -1,0 +1,58 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: changeit
+    key-store-type: PKCS12
+
+# SP entity ID - must match what's registered in the IdP
+saml:
+  sp:
+    entity-id: https://app.example.com:8443/saml2/service-provider-metadata/keycloak
+
+spring:
+  thymeleaf:
+    cache: false
+
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          # --------------------------------------------------
+          # Keycloak (local dev — docker compose brings this up)
+          # --------------------------------------------------
+          keycloak:
+            assertingparty:
+              metadata-uri: http://localhost:8080/realms/demo/protocol/saml/descriptor
+            signing:
+              credentials:
+                - private-key-location: classpath:saml/sp-private-key.pem
+                  certificate-location: classpath:saml/sp-certificate.pem
+
+          # --------------------------------------------------
+          # Okta (uncomment and fill in your Okta org URL)
+          # --------------------------------------------------
+          # okta:
+          #   assertingparty:
+          #     metadata-uri: https://dev-XXXXXX.okta.com/app/XXXXXXXXXXXXXXXX/sso/saml/metadata
+          #   signing:
+          #     credentials:
+          #       - private-key-location: classpath:saml/sp-private-key.pem
+          #         certificate-location: classpath:saml/sp-certificate.pem
+
+          # --------------------------------------------------
+          # Azure AD (uncomment and fill in your tenant ID)
+          # --------------------------------------------------
+          # azure:
+          #   assertingparty:
+          #     metadata-uri: https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml
+          #   signing:
+          #     credentials:
+          #       - private-key-location: classpath:saml/sp-private-key.pem
+          #         certificate-location: classpath:saml/sp-certificate.pem
+
+logging:
+  level:
+    org.springframework.security.saml2: DEBUG
+    org.opensaml: WARN

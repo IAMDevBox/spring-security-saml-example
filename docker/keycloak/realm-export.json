@@ -1,0 +1,102 @@
+{
+  "realm": "demo",
+  "displayName": "Demo Realm",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "users": [
+    {
+      "username": "user",
+      "email": "user@example.com",
+      "firstName": "Demo",
+      "lastName": "User",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user"]
+    },
+    {
+      "username": "admin",
+      "email": "admin@example.com",
+      "firstName": "Admin",
+      "lastName": "User",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user", "admin"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {"name": "user", "description": "Regular user"},
+      {"name": "admin", "description": "Administrator"}
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "https://app.example.com:8443/saml2/service-provider-metadata/keycloak",
+      "name": "Spring Boot SAML SP",
+      "protocol": "saml",
+      "enabled": true,
+      "attributes": {
+        "saml.signing.certificate": "",
+        "saml_assertion_consumer_url_post": "https://app.example.com:8443/saml2/login/sso/keycloak",
+        "saml_single_logout_service_url_post": "https://app.example.com:8443/saml2/logout/sso/keycloak",
+        "saml.authnstatement": "true",
+        "saml.client.signature": "false",
+        "saml.force.post.binding": "true",
+        "saml.multivalued.roles": "true",
+        "saml.roleListAttribute": "roles",
+        "saml.server.signature": "true",
+        "saml.signature.algorithm": "RSA_SHA256"
+      },
+      "protocolMappers": [
+        {
+          "name": "email",
+          "protocol": "saml",
+          "protocolMapper": "saml-user-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "attribute.name": "email",
+            "attribute.nameformat": "Basic",
+            "friendly.name": "email"
+          }
+        },
+        {
+          "name": "given_name",
+          "protocol": "saml",
+          "protocolMapper": "saml-user-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "firstName",
+            "attribute.name": "given_name",
+            "attribute.nameformat": "Basic",
+            "friendly.name": "given_name"
+          }
+        },
+        {
+          "name": "roles",
+          "protocol": "saml",
+          "protocolMapper": "saml-role-list-mapper",
+          "consentRequired": false,
+          "config": {
+            "attribute.name": "roles",
+            "attribute.nameformat": "Basic",
+            "single": "false"
+          }
+        }
+      ]
+    }
+  ]
+}

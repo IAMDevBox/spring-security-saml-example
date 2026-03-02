@@ -1,0 +1,12 @@
+target/
+*.class
+*.jar
+!**/test/**/*.jar
+.idea/
+*.iml
+.DS_Store
+*.p12
+*.jks
+src/main/resources/saml/sp-private-key.pem
+src/main/resources/saml/sp-certificate.pem
+src/main/resources/keystore.p12

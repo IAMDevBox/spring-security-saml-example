@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - SAML SSO Demo</title>
+    <style>
+        body { font-family: sans-serif; max-width: 480px; margin: 80px auto; padding: 20px; }
+        h1 { color: #333; }
+        .idp-button {
+            display: block; width: 100%; padding: 12px 20px; margin: 10px 0;
+            background: #1a73e8; color: white; border: none; border-radius: 6px;
+            font-size: 16px; cursor: pointer; text-align: center; text-decoration: none;
+        }
+        .idp-button:hover { background: #1557b0; }
+        .error { color: #d32f2f; background: #fce4e4; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Sign In</h1>
+
+    <div th:if="${errorMessage}" class="error" th:text="${errorMessage}"></div>
+
+    <p>Select your organization's identity provider:</p>
+
+    <!-- SP-initiated SAML login: /saml2/authenticate/{registrationId} -->
+    <a href="/saml2/authenticate/keycloak" class="idp-button">
+        Sign in with Keycloak
+    </a>
+
+    <!-- Uncomment when Okta/Azure are configured -->
+    <!--
+    <a href="/saml2/authenticate/okta" class="idp-button">
+        Sign in with Okta
+    </a>
+    <a href="/saml2/authenticate/azure" class="idp-button">
+        Sign in with Azure AD
+    </a>
+    -->
+</body>
+</html>
