@@ -2,7 +2,7 @@
 
 Production-ready Spring Boot 3 application demonstrating SAML 2.0 SSO integration with Spring Security. Includes multi-IdP support, attribute mapping, SLO (Single Logout), and Docker Compose for quick local testing with a mock IdP.
 
-> **Full tutorial:** [Configuring SAML Login with Spring Security: metadata-location and Relying Party Setup](https://iamdevbox.com/posts/configuring-saml-login-with-spring-security/)
+> **Full tutorial:** [Configuring SAML Login with Spring Security: metadata-location and Relying Party Setup](https://iamdevbox.com/posts/configuring-saml-login-with-spring-security/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
 
 ---
 
@@ -195,11 +195,11 @@ Integration tests use Spring's `MockMvc` with a mocked SAML response — no live
 
 ## Related Resources
 
-- **Full tutorial**: [Configuring SAML Login with Spring Security](https://iamdevbox.com/posts/configuring-saml-login-with-spring-security/)
-- **SAML vs OIDC**: [When to Use Which Protocol](https://iamdevbox.com/posts/saml-vs-oidc-when-to-use-which-protocol-in-2025/)
-- **SAML Decoder tool**: [Debug your SAML assertions](https://iamdevbox.com/tools/saml-decoder/)
-- **Understanding SSO**: [SSO and SAML Simplified](https://iamdevbox.com/posts/understanding-single-sign-on-sso-and-saml-simplified/)
-- **Testing SAML with Postman**: [SAML & OIDC Testing Guide](https://iamdevbox.com/posts/testing-saml-and-oidc-authorization-flows-with-postman/)
+- **Full tutorial**: [Configuring SAML Login with Spring Security](https://iamdevbox.com/posts/configuring-saml-login-with-spring-security/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
+- **SAML vs OIDC**: [When to Use Which Protocol](https://iamdevbox.com/posts/saml-vs-oidc-when-to-use-which-protocol-in-2025/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
+- **SAML Decoder tool**: [Debug your SAML assertions](https://iamdevbox.com/tools/saml-decoder/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
+- **Understanding SSO**: [SSO and SAML Simplified](https://iamdevbox.com/posts/understanding-single-sign-on-sso-and-saml-simplified/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
+- **Testing SAML with Postman**: [SAML & OIDC Testing Guide](https://iamdevbox.com/posts/testing-saml-and-oidc-authorization-flows-with-postman/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example)
 - [Spring Security SAML2 Reference](https://docs.spring.io/spring-security/reference/servlet/saml2/index.html)
 - [SAML 2.0 Specification](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
@@ -209,4 +209,4 @@ Integration tests use Spring's `MockMvc` with a mocked SAML response — no live
 
 MIT License — see [LICENSE](LICENSE).
 
-Built with ❤️ by [IAMDevBox.com](https://iamdevbox.com) — Identity & Access Management for developers.
+Built with ❤️ by [IAMDevBox.com](https://iamdevbox.com/?utm_source=github&utm_medium=companion-repo&utm_campaign=spring-security-saml-example) — Identity & Access Management for developers.
